@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  vulnapi:
+    build: .
+    container_name: vulnapi_testbed
+    ports:
+      - "127.0.0.1:5000:5000"   # Bind to loopback only - never expose publicly
+    restart: unless-stopped
+    labels:
+      - "research.purpose=apistrike-testbed"
+      - "research.environment=controlled-local"
